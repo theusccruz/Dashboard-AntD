@@ -1,32 +1,39 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-import { Container, ButtonContainer } from './styles';
+import { Container, ButtonContainer, Content } from './styles';
 
 const SignIn: React.FC = () => {
+  const submitForm = useCallback(data => {
+    console.log(data);
+  }, []);
+
   return (
     <Container>
-      <div>
+      <Content>
         <h1>Login</h1>
+
         <Form
           name="normal_login"
           className="login-form"
-          initialValues={{ remember: true }}
+          initialValues={{ remember: false }}
           size="large"
+          onFinish={submitForm}
         >
           <Form.Item
             name="username"
-            rules={[{ required: true, message: 'Please input your Username!' }]}
+            rules={[{ required: true, message: 'Informe seu email!', type: 'email' }]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Email"
+              autoFocus
             />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
+            rules={[{ required: true, message: 'Informe sua senha!' }]}
           >
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
@@ -36,7 +43,7 @@ const SignIn: React.FC = () => {
           </Form.Item>
           <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>Lembrar de mim</Checkbox>
             </Form.Item>
           </Form.Item>
           <ButtonContainer>
@@ -47,7 +54,7 @@ const SignIn: React.FC = () => {
             </Form.Item>
           </ButtonContainer>
         </Form>
-      </div>
+      </Content>
     </Container>
   );
 };

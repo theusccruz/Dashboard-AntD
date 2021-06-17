@@ -7,21 +7,21 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  > div {
-    width: 450px;
-    height: 350px;
+export const Content = styled.div`
+  width: 450px;
+  height: 350px;
 
-    background: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
 
-    h1 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+  h1 {
+    text-align: center;
+    margin-bottom: 15px;
   }
 `;
 

@@ -23,18 +23,17 @@ const SignIn: React.FC = () => {
         >
           <Form.Item
             name="username"
-            rules={[
-              { required: true, message: 'Por favor informe seu email!', type: 'email' },
-            ]}
+            rules={[{ required: true, message: 'Informe seu email!', type: 'email' }]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Email"
+              autoFocus
             />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: 'Por favor informe sua senha!' }]}
+            rules={[{ required: true, message: 'Informe sua senha!' }]}
           >
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
